@@ -33,7 +33,7 @@ export default function Show(props) {
 
             <div className="pb-6 page">
                 {/* template card */}
-                <div className="max-w-xs mx-auto mt-6 rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
+                <div className="max-w-xs mx-auto mt-6 bg-white rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
                     <img
                         src={cvImage}
                         alt=""

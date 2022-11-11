@@ -14,7 +14,7 @@ use Spatie\RouteAttributes\Attributes\Middleware;
 use Spatie\RouteAttributes\Attributes\Patch;
 
 #[Middleware(['auth'])]
-class ProfileController
+class ProfilesController
 {
     /**
      * Display the user's profile form.
@@ -25,7 +25,7 @@ class ProfileController
     #[Get('/profile', name: 'profile.edit')]
     public function edit(Request $request)
     {
-        return Inertia::render('Profile/Edit', [
+        return Inertia::render('Profiles/Edit', [
             'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
             'status' => session('status'),
         ]);

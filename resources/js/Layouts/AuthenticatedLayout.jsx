@@ -5,12 +5,12 @@ import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/inertia-react";
 
-export default function AuthenticatedLayout({ auth , header, children }) {
+export default function AuthenticatedLayout({ auth, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
 
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen bg-gray-100">
             <nav className="bg-white border-b border-gray-100">
                 <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
@@ -156,6 +156,9 @@ export default function AuthenticatedLayout({ auth , header, children }) {
                             </div>
 
                             <div className="mt-3 space-y-1">
+                                <ResponsiveNavLink href={route("profile.edit")}>
+                                    Profile
+                                </ResponsiveNavLink>
                                 <ResponsiveNavLink
                                     method="post"
                                     href={route("logout")}
@@ -177,7 +180,7 @@ export default function AuthenticatedLayout({ auth , header, children }) {
                 </header>
             )}
 
-            <main className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <main className="px-4 pt-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 {children}
             </main>
         </div>
