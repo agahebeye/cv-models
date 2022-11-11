@@ -24,7 +24,7 @@ export default function Index(props) {
             
             <div className="pb-6">
                 <div
-                    className="flex flex-wrap gap-6 sm:justify-start"
+                    className="flex flex-wrap justify-center gap-6 mx-auto md:max-w-4xl md:justify-start"
                     id="templates"
                 >
                     {templates.map((templ) => (
