@@ -1,7 +1,7 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Link } from "@inertiajs/inertia-react";
+import { Link, Head } from "@inertiajs/inertia-react";
 
-export default function Index(props) {
+export default function Show(props) {
     return (
         <AuthenticatedLayout
             auth={props.auth}
@@ -19,6 +19,7 @@ export default function Index(props) {
                 </h2>
             }
         >
+            <Head title={`${props.template} template`} />
             <div className="pb-6"></div>
         </AuthenticatedLayout>
     );

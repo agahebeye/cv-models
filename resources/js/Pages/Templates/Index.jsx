@@ -1,5 +1,6 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import Skeleton from "./Components/Skeleton";
+import { Head } from "@inertiajs/inertia-react";
 
 export default function Index(props) {
     const templates = Array.from(
@@ -19,6 +20,8 @@ export default function Index(props) {
                 </h2>
             }
         >
+            <Head title="Templates" />
+            
             <div className="pb-6">
                 <div
                     className="flex flex-wrap gap-6 sm:justify-start"
