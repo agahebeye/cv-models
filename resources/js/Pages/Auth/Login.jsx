@@ -34,7 +34,7 @@ export default function Login({ status, canResetPassword }) {
         <GuestLayout>
             <Head title="Log in" />
 
-            {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
+            {status && <div className="mb-4 text-sm font-medium text-green-600">{status}</div>}
 
             <form onSubmit={submit}>
                 <div>
@@ -44,7 +44,7 @@ export default function Login({ status, canResetPassword }) {
                         type="text"
                         name="email"
                         value={data.email}
-                        className="mt-1 block w-full"
+                        className="block w-full mt-1"
                         autoComplete="username"
                         isFocused={true}
                         handleChange={onHandleChange}
@@ -60,7 +60,7 @@ export default function Login({ status, canResetPassword }) {
                         type="password"
                         name="password"
                         value={data.password}
-                        className="mt-1 block w-full"
+                        className="block w-full mt-1"
                         autoComplete="current-password"
                         handleChange={onHandleChange}
                     />
@@ -80,11 +80,15 @@ export default function Login({ status, canResetPassword }) {
                     {canResetPassword && (
                         <Link
                             href={route('password.request')}
-                            className="underline text-sm text-gray-600 hover:text-gray-900"
+                            className="text-sm text-gray-600 underline hover:text-gray-900"
                         >
                             Forgot your password?
                         </Link>
                     )}
+
+                     <Link href={route('register')} className="text-sm text-gray-600 underline hover:text-gray-900">
+                        You do not have an account yet?
+                    </Link>
 
                     <PrimaryButton className="ml-4" processing={processing}>
                         Log in
