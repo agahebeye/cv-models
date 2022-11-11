@@ -11,4 +11,12 @@ class TemplatesController
     {
         return inertia()->render('Templates/Index');
     }
+
+    #[Get('/templates/{id}', name: 'templates.show')]
+    public function show($id)
+    {
+        return inertia('Templates/Show', [
+            'template' => $id
+        ]);
+    }
 }

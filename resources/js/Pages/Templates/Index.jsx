@@ -9,8 +9,6 @@ export default function Index(props) {
         () => Math.random().toString(36).substring(2, 10)
     );
 
-    console.log(templates)
-
     return (
         <AuthenticatedLayout
             auth={props.auth}
