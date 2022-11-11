@@ -11,8 +11,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Inertia\Inertia;
-use Spatie\RouteAttributes\Attributes\Get;
-use Spatie\RouteAttributes\Attributes\Post;
 
 class RegisteredUserController extends Controller
 {
@@ -21,7 +19,6 @@ class RegisteredUserController extends Controller
      *
      * @return \Inertia\Response
      */
-    #[Get('register', name: 'register', middleware: 'guest')]
     public function create()
     {
         return Inertia::render('Auth/Register');
@@ -35,12 +32,11 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    #[Post('register', middleware: 'guest')]
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:' . User::class,
+            'email' => 'required|string|email|max:255|unique:'.User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 

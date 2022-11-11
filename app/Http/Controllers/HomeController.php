@@ -7,7 +7,7 @@ use Spatie\RouteAttributes\Attributes\Get;
 
 class HomeController
 {
-    #[Get('/', name: 'home')]
+    #[Get('/', name: 'home', middleware: ['guest'])]
     public function __invoke()
     {
         return inertia()->render('Home');
