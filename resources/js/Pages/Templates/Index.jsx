@@ -12,8 +12,6 @@ export default function Index(props) {
 
     return (
         <AuthenticatedLayout
-            auth={props.auth}
-            errors={props.errors}
             header={
                 <h2 className="text-xl font-semibold leading-tight text-gray-800">
                     Templates
@@ -21,7 +19,7 @@ export default function Index(props) {
             }
         >
             <Head title="Templates" />
-            
+
             <div className="pb-6">
                 <div
                     className="flex flex-wrap justify-center gap-6 md:justify-start"
