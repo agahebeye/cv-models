@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-export default function SelectBox({
+export default function MultilineInput({
     type = "text",
     name,
     value,

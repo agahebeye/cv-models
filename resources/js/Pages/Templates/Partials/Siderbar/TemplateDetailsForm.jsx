@@ -1,7 +1,7 @@
 import InputLabel from "@/Components/InputLabel";
 import InputError from "@/Components/InputError";
 import TextInput from "@/Components/TextInput";
-import SelectBox from '@/Components/SelectBox'
+import MultilineInput from '@/Components/MultilineInput'
 import { useForm } from "@inertiajs/inertia-react";
 
 export default function TemplateDetailsForm() {
@@ -12,7 +12,9 @@ export default function TemplateDetailsForm() {
 
     return (
         <form onSubmit={null}>
-            <div>
+            <h3 className="text-xl font-semibold text-gray-700">Template details</h3>
+
+            <div className="mt-4">
                 <InputLabel forInput="title" value="Title" />
 
                 <TextInput
@@ -30,7 +32,7 @@ export default function TemplateDetailsForm() {
             <div className="mt-4">
                 <InputLabel forInput="description" value="Description" />
 
-                <SelectBox
+                <MultilineInput
                     type="text"
                     name="description"
                     value={data.description}
