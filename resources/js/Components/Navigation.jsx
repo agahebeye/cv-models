@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ApplicationLogo from "@/Components/ApplicationLogo";
 import Dropdown from "@/Components/Dropdown";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link, usePage } from "@inertiajs/inertia-react";
+import { Bars3BottomLeftIcon } from "@heroicons/react/24/solid";
+import { EditorContext } from "@/Pages/Templates/EditorProvider";
 
 export default function Navigation({ showLeftNavigation = true }) {
     const { auth } = usePage().props;
+    const { setIsOpen } = useContext(EditorContext);
 
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
@@ -17,9 +20,21 @@ export default function Navigation({ showLeftNavigation = true }) {
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16">
                     {/* left navigation */}
-                    <div className="flex">
+                    <div className="flex flex-grow">
                         {/* application logo */}
-                        <div className="flex items-center shrink-0">
+                        <div className="flex items-center space-x-1 shrink-0">
+                            {route().current("templates.new") && (
+                                <button
+                                    onClick={() =>
+                                        setIsOpen(
+                                            (isOpen) => (isOpen = !isOpen)
+                                        )
+                                    }
+                                >
+                                    <Bars3BottomLeftIcon className="w-5 h-5" />
+                                </button>
+                            )}
+
                             <Link href="/">
                                 <ApplicationLogo className="block w-auto text-gray-500 h-9" />
                             </Link>
@@ -47,6 +62,7 @@ export default function Navigation({ showLeftNavigation = true }) {
                                 ) : (
                                     <>
                                         <NavLink
+                                            className=""
                                             href={route("login")}
                                             active={route().current("login")}
                                         >
@@ -54,6 +70,7 @@ export default function Navigation({ showLeftNavigation = true }) {
                                         </NavLink>
 
                                         <NavLink
+                                            className="ml-auto"
                                             href={route("register")}
                                             active={route().current("register")}
                                         >

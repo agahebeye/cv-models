@@ -1,4 +1,5 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import Navigation from "@/Components/Navigation";
 import Skeleton from "./Components/Skeleton";
 import { Head } from "@inertiajs/inertia-react";
 
@@ -12,6 +13,7 @@ export default function Index(props) {
 
     return (
         <AuthenticatedLayout
+        navigation={<Navigation />}
             header={
                 <h2 className="text-xl font-semibold leading-tight text-gray-800">
                     Templates

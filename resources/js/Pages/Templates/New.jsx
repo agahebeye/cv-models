@@ -2,25 +2,21 @@ import { Head } from "@inertiajs/inertia-react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import Navigation from "@/Components/Navigation";
 
+import EditorSidebar from "./Partials/EditorSidebar";
+import TemplateEditor from "./Partials/TemplateEditor";
+
 export default function New(props) {
     return (
-        <AuthenticatedLayout
-            header={<Header />}
-            navigation={<Navigation showLeftNavigation={false} />}
-        >
-            <Head title="New template" />
+            <AuthenticatedLayout
+                navigation={<Navigation showLeftNavigation={false} />}
+            >
+                <Head title="New template" />
 
-            <div>
-                <h1>this is a new template</h1>
-            </div>
-        </AuthenticatedLayout>
-    );
-}
+                <div className="flex">
+                    <EditorSidebar />
 
-function Header() {
-    return (
-        <h2 className="text-xl font-semibold leading-tight text-gray-800">
-            New template
-        </h2>
+                    <div className="w-full min-h-screen mb-6 bg-white shadow-lg shadow-gray-200"></div>
+                </div>
+            </AuthenticatedLayout>
     );
 }

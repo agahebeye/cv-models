@@ -1,9 +1,10 @@
 import { Head } from "@inertiajs/inertia-react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import Navigation from "@/Components/Navigation";
 
 export default function Home(props) {
     return (
-        <AuthenticatedLayout auth={props.auth}>
+        <AuthenticatedLayout navigation={<Navigation />}>
             <Head title="Home" />
 
             <div>
