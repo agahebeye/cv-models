@@ -4,11 +4,12 @@ import DeleteUserForm from "./Partials/DeleteUserForm";
 import UpdatePasswordForm from "./Partials/UpdatePasswordForm";
 import UpdateProfileInformationForm from "./Partials/UpdateProfileInformationForm";
 import { Head } from "@inertiajs/inertia-react";
+import Navigation from "@/Components/Navigation";
 
 export default function Edit({ auth, mustVerifyEmail, status }) {
     return (
         <AuthenticatedLayout
-            auth={auth}
+            navigation={<Navigation />}
             header={
                 <h2 className="text-xl font-semibold leading-tight text-gray-800">
                     Profile

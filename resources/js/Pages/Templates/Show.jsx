@@ -1,5 +1,6 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Link, Head } from "@inertiajs/inertia-react";
+import Navigation from "@/Components/Navigation";
 
 import Skeleton from "./Components/Skeleton";
 import cvImage from "@/../images/cv.png";
@@ -14,8 +15,7 @@ export default function Show(props) {
 
     return (
         <AuthenticatedLayout
-            auth={props.auth}
-            errors={props.errors}
+            navigation={<Navigation />}
             header={
                 <h2 className="flex items-center space-x-2 text-xl font-semibold leading-tight text-gray-800">
                     <Link
@@ -106,7 +106,9 @@ export default function Show(props) {
 
                 {/* similar templates */}
                 <div className="mt-10 space-y-4">
-                    <h2 className="text-2xl font-bold text-center">Similar templates</h2>
+                    <h2 className="text-2xl font-bold text-center">
+                        Similar templates
+                    </h2>
 
                     <div
                         className="flex flex-wrap justify-center gap-6 mx-auto md:max-w-4xl md:justify-start"
