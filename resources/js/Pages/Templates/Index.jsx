@@ -15,7 +15,7 @@ export default function Index(props) {
             auth={props.auth}
             errors={props.errors}
             header={
-                <h2 className="text-3xl font-semibold leading-tight text-gray-800">
+                <h2 className="text-xl font-semibold leading-tight text-gray-800">
                     Templates
                 </h2>
             }
@@ -24,7 +24,7 @@ export default function Index(props) {
             
             <div className="pb-6">
                 <div
-                    className="flex flex-wrap justify-center gap-6 mx-auto md:max-w-4xl md:justify-start"
+                    className="flex flex-wrap justify-center gap-6 md:justify-start"
                     id="templates"
                 >
                     {templates.map((templ) => (

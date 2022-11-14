@@ -17,7 +17,7 @@ export default function Show(props) {
             auth={props.auth}
             errors={props.errors}
             header={
-                <h2 className="flex items-center space-x-2 text-3xl font-semibold leading-tight text-gray-800">
+                <h2 className="flex items-center space-x-2 text-xl font-semibold leading-tight text-gray-800">
                     <Link
                         className="text-gray-700 border-b border-gray-500"
                         href={route("templates.index")}

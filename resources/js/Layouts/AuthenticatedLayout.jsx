@@ -22,19 +22,25 @@ export default function AuthenticatedLayout({ auth, header, children }) {
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink
-                                    href={route("login")}
-                                    active={route().current("login")}
-                                >
-                                    Login
-                                </NavLink>
+                                {auth?.user ? (
+                                    <></>
+                                ) : (
+                                    <>
+                                        <NavLink
+                                            href={route("login")}
+                                            active={route().current("login")}
+                                        >
+                                            Login
+                                        </NavLink>
 
-                                <NavLink
-                                    href={route("register")}
-                                    active={route().current("register")}
-                                >
-                                    Register
-                                </NavLink>
+                                        <NavLink
+                                            href={route("register")}
+                                            active={route().current("register")}
+                                        >
+                                            Register
+                                        </NavLink>
+                                    </>
+                                )}
 
                                 <NavLink
                                     href={route("templates.index")}
@@ -45,8 +51,8 @@ export default function AuthenticatedLayout({ auth, header, children }) {
                             </div>
                         </div>
 
-                        <div className="hidden sm:flex sm:items-center sm:ml-6">
-                            {auth?.user && (
+                        {auth?.user && (
+                            <div className="hidden sm:flex sm:items-center sm:ml-6">
                                 <div className="relative ml-3">
                                     <Dropdown>
                                         <Dropdown.Trigger>
@@ -75,6 +81,14 @@ export default function AuthenticatedLayout({ auth, header, children }) {
 
                                         <Dropdown.Content>
                                             <Dropdown.Link
+                                                href={route("profile.edit")}
+                                                method="get"
+                                            >
+                                                Profile
+                                            </Dropdown.Link>
+
+                                            <Dropdown.Link
+                                                className="text-2xl"
                                                 href={route("logout")}
                                                 method="post"
                                                 as="button"
@@ -84,8 +98,8 @@ export default function AuthenticatedLayout({ auth, header, children }) {
                                         </Dropdown.Content>
                                     </Dropdown>
                                 </div>
-                            )}
-                        </div>
+                            </div>
+                        )}
 
                         <div className="flex items-center -mr-2 sm:hidden">
                             <button
