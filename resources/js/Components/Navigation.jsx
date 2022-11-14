@@ -5,7 +5,7 @@ import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link, usePage } from "@inertiajs/inertia-react";
 import { Bars3BottomLeftIcon } from "@heroicons/react/24/solid";
-import { EditorContext } from "@/Pages/Templates/EditorProvider";
+import { EditorContext } from "@/Pages/Templates/Contexts/EditorProvider";
 
 export default function Navigation({ showLeftNavigation = true }) {
     const { auth } = usePage().props;

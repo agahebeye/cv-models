@@ -1,4 +1,4 @@
-import EditorProvider from "@/Pages/Templates/EditorProvider";
+import EditorProvider from "@/Pages/Templates/Contexts/EditorProvider";
 
 export default function AuthenticatedLayout({ navigation, header, children }) {
     return (
