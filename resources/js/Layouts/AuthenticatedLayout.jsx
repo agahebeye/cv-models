@@ -22,8 +22,22 @@ export default function AuthenticatedLayout({ auth, header, children }) {
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink
+                                    href={route("templates.index")}
+                                    active={route().current("templates.index")}
+                                >
+                                    Browse
+                                </NavLink>
+                                
                                 {auth?.user ? (
-                                    <></>
+                                    <>
+                                        <NavLink
+                                            href={route("templates.new")}
+                                            active={route().current("new")}
+                                        >
+                                            New
+                                        </NavLink>
+                                    </>
                                 ) : (
                                     <>
                                         <NavLink
@@ -41,13 +55,6 @@ export default function AuthenticatedLayout({ auth, header, children }) {
                                         </NavLink>
                                     </>
                                 )}
-
-                                <NavLink
-                                    href={route("templates.index")}
-                                    active={route().current("templates.index")}
-                                >
-                                    Templates
-                                </NavLink>
                             </div>
                         </div>
 
@@ -144,6 +151,7 @@ export default function AuthenticatedLayout({ auth, header, children }) {
                     </div>
                 </div>
 
+                {/* responsive nav */}
                 <div
                     className={
                         (showingNavigationDropdown ? "block" : "hidden") +
