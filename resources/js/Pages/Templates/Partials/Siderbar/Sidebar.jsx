@@ -1,8 +1,10 @@
 import { useState, useContext } from "react";
-import { XMarkIcon } from "@heroicons/react/24/solid";
-import { EditorContext } from "../../Contexts/EditorProvider";
 import { Tab } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/24/solid";
+
+import { EditorContext } from "../../Contexts/EditorProvider";
 import TemplateDetailsForm from "./TemplateDetailsForm";
+import TemplateAttributes from "./TemplateAttributes";
 
 export default function Sidebar() {
     const { isOpen, setIsOpen } = useContext(EditorContext);
@@ -15,16 +17,14 @@ export default function Sidebar() {
         <aside>
             {!isOpen && (
                 <div className="w-full min-h-screen p-6 mr-6 bg-white shadow-lg sm:w-60 dark:bg-gray-900 dark:text-gray-100 shadow-gray-200">
-                    <div className="mb-10 text-right">
-                        <button
-                            className="text-xs underline"
-                            onClick={() =>
-                                setIsOpen((prevState) => (prevState = false))
-                            }
-                        >
-                            <XMarkIcon className="w-5 h-5" />
-                        </button>
-                    </div>
+                    <button
+                        className="mb-10 text-xs text-right underline"
+                        onClick={() =>
+                            setIsOpen((prevState) => (prevState = false))
+                        }
+                    >
+                        <XMarkIcon className="w-5 h-5" />
+                    </button>
 
                     <nav className="space-y-8 text-sm">
                         <Tab.Group>
@@ -38,7 +38,9 @@ export default function Sidebar() {
                                 <Tab.Panel>
                                     <TemplateDetailsForm />
                                 </Tab.Panel>
-                                <Tab.Panel>Content 2</Tab.Panel>
+                                <Tab.Panel>
+                                    <TemplateAttributes />
+                                </Tab.Panel>
                                 <Tab.Panel>Content 3</Tab.Panel>
                             </Tab.Panels>
                         </Tab.Group>
