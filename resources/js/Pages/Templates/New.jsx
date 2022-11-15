@@ -11,7 +11,7 @@ export default function New(props) {
         >
             <Head title="New template" />
 
-            <div className="flex">
+            <div className="md:flex">
                 <Sidebar />
 
                 <div className="w-full min-h-screen mb-6 bg-white shadow-lg shadow-gray-200"></div>

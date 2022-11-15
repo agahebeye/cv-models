@@ -14,9 +14,9 @@ export default function Sidebar() {
                   ${selected ? "bg-gray-100" : ""}`;
 
     return (
-        <aside>
+        <aside className="relative">
             {!isOpen && (
-                <div className="w-full min-h-screen p-6 mr-6 bg-white shadow-lg sm:w-60 dark:bg-gray-900 dark:text-gray-100 shadow-gray-200">
+                <div className="w-full absolute md:relative h-screen p-6 md:mr-6 overflow-y-auto bg-white shadow-lg md:w-[320px] dark:bg-gray-900 dark:text-gray-100 shadow-gray-200">
                     <button
                         className="mb-10 text-xs text-right underline"
                         onClick={() =>
