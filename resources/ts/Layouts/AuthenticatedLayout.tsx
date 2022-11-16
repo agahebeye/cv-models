@@ -45,8 +45,8 @@ export default function Authenticated({ auth, header, children }: Props) {
                             </div>
                         </div>
 
-                        {auth?.user && (
-                            <div className="hidden sm:flex sm:items-center sm:ml-6">
+                        <div className="hidden sm:flex sm:items-center sm:ml-6">
+                            {auth?.user ? (
                                 <div className="relative ml-3">
                                     <Dropdown>
                                         <Dropdown.Trigger>
@@ -89,8 +89,19 @@ export default function Authenticated({ auth, header, children }: Props) {
                                         </Dropdown.Content>
                                     </Dropdown>
                                 </div>
-                            </div>
-                        )}
+                            ) : (
+                                <div className="hidden h-16 space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                    <NavLink href={route("login")}>
+                                        Login
+                                    </NavLink>
+
+                                    <NavLink href={route("register")}>
+                                        Register
+                                    </NavLink>
+                                </div>
+                            )}
+                        </div>
+
                         <div className="flex items-center -mr-2 sm:hidden">
                             <button
                                 onClick={() =>
