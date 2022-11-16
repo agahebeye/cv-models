@@ -16,6 +16,6 @@ class WelcomeController extends Controller
     #[Get('/', name: 'welcome')]
     public function __invoke(Request $request)
     {
-        return inertia('Welcome');
+        return inertia()->render('Welcome');
     }
 }
