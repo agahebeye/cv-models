@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Inertia\Inertia;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Providers\RouteServiceProvider;
-use App\Http\Requests\Auth\LoginRequest;
+use Inertia\Inertia;
 use Spatie\RouteAttributes\Attributes\Get;
+use Spatie\RouteAttributes\Attributes\Middleware;
 use Spatie\RouteAttributes\Attributes\Post;
 
+#[Middleware(['guest'])]
 class AuthenticatedSessionController extends Controller
 {
     /**
@@ -19,7 +21,7 @@ class AuthenticatedSessionController extends Controller
      *
      * @return \Inertia\Response
      */
-    #[Get('login', name: 'login', middleware: ['guest'])]
+    #[Get('/login', name: 'login')]
     public function create()
     {
         return Inertia::render('Auth/Login', [
@@ -34,7 +36,7 @@ class AuthenticatedSessionController extends Controller
      * @param  \App\Http\Requests\Auth\LoginRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    #[Post('login', middleware: ['guest'])]
+    #[Post('/login')]
     public function store(LoginRequest $request)
     {
         $request->authenticate();
@@ -50,7 +52,7 @@ class AuthenticatedSessionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    #[Post('logout', name: 'logout', middleware: ['auth'])]
+    #[Post('/logout', name: 'logout', middleware: ['auth'])]
     public function destroy(Request $request)
     {
         Auth::guard('web')->logout();

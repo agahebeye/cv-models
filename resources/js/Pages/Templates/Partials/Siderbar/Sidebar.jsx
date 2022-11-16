@@ -16,7 +16,7 @@ export default function Sidebar() {
     return (
         <aside className="relative">
             {!isOpen && (
-                <div className="w-full absolute md:relative h-screen p-6 md:mr-6 overflow-y-auto bg-white shadow-lg md:w-[320px] dark:bg-gray-900 dark:text-gray-100 shadow-gray-200">
+                <div className="w-full absolute md:relative h-screen p-6 md:mr-6 overflow-y-auto bg-white shadow-lg md:w-[320px] shadow-gray-200">
                     <button
                         className="mb-10 text-xs text-right underline"
                         onClick={() =>

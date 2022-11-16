@@ -12,8 +12,10 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Inertia\Inertia;
 use Spatie\RouteAttributes\Attributes\Get;
+use Spatie\RouteAttributes\Attributes\Middleware;
 use Spatie\RouteAttributes\Attributes\Post;
 
+#[Middleware(['web'])]
 class RegisteredUserController extends Controller
 {
     /**
@@ -21,10 +23,10 @@ class RegisteredUserController extends Controller
      *
      * @return \Inertia\Response
      */
-    #[Get('register', name: 'register', middleware: 'guest')]
+    #[Get('/register', name: 'register')]
     public function create()
     {
-        return inertia('Auth/Register');
+        return Inertia::render('Auth/Register');
     }
 
     /**
@@ -35,7 +37,7 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    #[Post('register',  middleware: 'guest')]
+    #[Post('/register')]
     public function store(Request $request)
     {
         $request->validate([

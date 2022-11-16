@@ -20,6 +20,17 @@ export default function TemplateAttributes() {
         "Qualities",
     ];
 
+    const sections = {
+        name: "Person details",
+        fields: [
+            {
+                name: "Given name",
+                value: "",
+                type: "input",
+            },
+        ],
+    };
+
     return (
         <div className="space-y-3">
             {attributes.map((attribute) => (
