@@ -25,11 +25,11 @@ export default function Login({ status, canResetPassword }: Props) {
         };
     }, []);
 
-    const onHandleChange = (event) => {
-        setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
+    const onHandleChange = (event: React.FormEvent<HTMLInputElement>) => {
+       setData(event.currentTarget.name, event.currentTarget.type === 'checkbox' ? event.currentTarget.checked : event.currentTarget.value);
     };
 
-    const submit = (e) => {
+    const submit = (e: React.SyntheticEvent) => {
         e.preventDefault();
 
         post(route('login'));
