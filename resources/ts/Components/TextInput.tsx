@@ -1,10 +1,24 @@
-import React, { forwardRef, useEffect, useRef } from 'react';
+import React, { forwardRef, useEffect, useRef } from "react";
+
+interface ITextInputProps extends React.ComponentPropsWithRef<"input"> {
+    handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    isFocused?: boolean
+}
 
 export default forwardRef(function TextInput(
-    { type = 'text', name, value, className, autoComplete, required, isFocused, handleChange },
-    ref
+    {
+        type = "text",
+        name,
+        value,
+        className,
+        autoComplete,
+        required,
+        isFocused,
+        handleChange,
+    }: ITextInputProps,
+    ref: React.Ref<HTMLInputElement>
 ) {
-    const input = ref ? ref : useRef();
+    const input = ref ? ref : useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         if (isFocused) {

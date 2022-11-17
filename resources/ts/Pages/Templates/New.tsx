@@ -4,6 +4,7 @@ import { Link, Head } from "@inertiajs/inertia-react";
 import { Bars3BottomLeftIcon, XMarkIcon } from "@heroicons/react/24/solid";
 
 import AuthenticatedLayout from "~/Layouts/AuthenticatedLayout";
+import TextInput from "~/Components/TextInput";
 
 type Section = {
     name: string;
@@ -57,25 +58,28 @@ export default function New(props: AuthenticatedLayoutProps) {
                         </div>
 
                         <div id="sections" className="px-4">
-                            {sections.map((s: Section) => (
+                            {sections.map((section: Section) => (
                                 <section key="s.name">
                                     <h3 className="text-xl"></h3>
                                     <form action="" className="mt-4">
-                                        {s.fields.map((f) => (
+                                        {section.fields.map((field) => (
                                             <div
                                                 className="flex flex-col"
-                                                key={f.label}
+                                                key={field.label}
                                             >
-                                                <label htmlFor="">{f.label}</label>
-                                                <input
-                                                    onChange={(event) => {
+                                                <label htmlFor="">
+                                                    {field.label}
+                                                </label>
+
+                                                <TextInput
+                                                    className="block w-full mt-1"
+                                                    handleChange={(event) =>
                                                         handleChange(
                                                             event,
-                                                            s.name,
-                                                            f.label
-                                                        );
-                                                    }}
-                                                    type="text"
+                                                            section.name,
+                                                            field.label
+                                                        )
+                                                    }
                                                 />
                                             </div>
                                         ))}
