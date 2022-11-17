@@ -1,17 +1,42 @@
 import React, { useState } from "react";
+import { useImmer } from "use-immer";
 import { Link, Head } from "@inertiajs/inertia-react";
 import { Bars3BottomLeftIcon, XMarkIcon } from "@heroicons/react/24/solid";
 
 import AuthenticatedLayout from "~/Layouts/AuthenticatedLayout";
 
+type Section = {
+    name: string;
+    fields: Field[];
+};
+
+type Field = {
+    label: string;
+    value: string;
+};
+
+const sections = [
+    {
+        name: "Person Details",
+        fields: [{ label: "Given name", value: "" }],
+    },
+];
+
 export default function New(props: AuthenticatedLayoutProps) {
     const [open, setOpen] = useState(false);
-    const [section, setSection] = useState([
-        {
-            name: "Person Details",
-            fields: [{ label: "Given name", value: "" }],
-        },
-    ]);
+    const [section, UpdateSection] = useImmer(sections);
+
+    function handleChange(
+        e: React.ChangeEvent<HTMLInputElement>,
+        section: string,
+        field: string
+    ) {
+        UpdateSection((draft) => {
+            const s = draft.find((s) => s.name === section) as Section;
+            const f = s.fields.find((f) => (f.label = field)) as Field;
+            f.value = e.target.value;
+        });
+    }
 
     return (
         <AuthenticatedLayout auth={props.auth}>
@@ -32,25 +57,35 @@ export default function New(props: AuthenticatedLayoutProps) {
                         </div>
 
                         <div id="sections" className="px-4">
-                            <section>
-                                <h3 className="text-xl">{section[0].name}</h3>
-                                <form action="" className="mt-4">
-                                    <div className="flex flex-col">
-                                        <label htmlFor="">
-                                            {section[0].fields[0].label}
-                                        </label>
-                                        <input
-                                        onChange={() => console.log('section 1')}
-                                            type="text"
-                                            value={section[0].fields[0].value}
-                                        />
-                                    </div>
-                                </form>
-                            </section>
+                            {sections.map((s: Section) => (
+                                <section key="s.name">
+                                    <h3 className="text-xl"></h3>
+                                    <form action="" className="mt-4">
+                                        {s.fields.map((f) => (
+                                            <div
+                                                className="flex flex-col"
+                                                key={f.label}
+                                            >
+                                                <label htmlFor="">{f.label}</label>
+                                                <input
+                                                    onChange={(event) => {
+                                                        handleChange(
+                                                            event,
+                                                            s.name,
+                                                            f.label
+                                                        );
+                                                    }}
+                                                    type="text"
+                                                />
+                                            </div>
+                                        ))}
+                                    </form>
+                                </section>
+                            ))}
                         </div>
                     </div>
 
-                    <div className="flex items-start hidden w-full">
+                    <div className="flex items-start w-full">
                         {!open && (
                             <button
                                 className="mr-2"
@@ -68,7 +103,8 @@ export default function New(props: AuthenticatedLayoutProps) {
                                 open ? "hidden md:block" : ""
                             }`}
                         >
-                            editor
+                            {section[0].fields[0].label}:{" "}
+                            {section[0].fields[0].value}
                         </div>
                     </div>
                 </div>
