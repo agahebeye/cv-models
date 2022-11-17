@@ -11,6 +11,7 @@ interface Props {
     };
     header?: React.ReactNode;
     children?: React.ReactNode;
+    errors?: any
 }
 
 export default function Authenticated({ auth, header, children }: Props) {
