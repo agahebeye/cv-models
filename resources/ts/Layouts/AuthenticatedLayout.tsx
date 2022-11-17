@@ -11,7 +11,7 @@ interface Props {
     };
     header?: React.ReactNode;
     children?: React.ReactNode;
-    errors?: any
+    errors?: any;
 }
 
 export default function Authenticated({ auth, header, children }: Props) {
@@ -32,8 +32,8 @@ export default function Authenticated({ auth, header, children }: Props) {
 
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink
-                                    href={route("dashboard")}
-                                    active={route().current("dashboard")}
+                                    href={route("templates.index")}
+                                    active={route().current("templates.index")}
                                 >
                                     Browse
                                 </NavLink>
@@ -197,7 +197,11 @@ export default function Authenticated({ auth, header, children }: Props) {
                 </header>
             )}
 
-            <main>{children}</main>
+            <main>
+                <div className="pt-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                            {children}
+                </div>
+            </main>
         </div>
     );
 }
