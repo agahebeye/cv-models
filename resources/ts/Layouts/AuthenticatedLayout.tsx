@@ -38,8 +38,8 @@ export default function Authenticated({ auth, header, children }: Props) {
                                     Browse
                                 </NavLink>
                                 <NavLink
-                                    href={route("dashboard")}
-                                    active={route().current("dashboard")}
+                                    href={route("templates.new")}
+                                    active={route().current("templates.new")}
                                 >
                                     New
                                 </NavLink>
