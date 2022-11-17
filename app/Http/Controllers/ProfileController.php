@@ -25,7 +25,7 @@ class ProfileController
     #[Get('/profile', name: 'profile.edit')]
     public function edit(Request $request)
     {
-        return Inertia::render('Profiles/Edit', [
+        return Inertia::render('Profile/Edit', [
             'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
             'status' => session('status'),
         ]);
