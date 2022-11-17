@@ -9,8 +9,8 @@ interface Props {
     auth: {
         user?: any;
     };
-    header?: JSX.Element;
-    children: JSX.Element;
+    header?: React.ReactNode;
+    children?: React.ReactNode;
 }
 
 export default function Authenticated({ auth, header, children }: Props) {
