@@ -20,8 +20,8 @@ export default function New(props: AuthenticatedLayoutProps) {
                 <div className="md:space-x-4 md:flex">
                     <div
                         id="sidebar"
-                        className={`min-h-[82vh] shadow-lg bg-white w-full z-10 md:w-[500px] ${
-                            !open ? "block" : "hidden md:block"
+                        className={`min-h-[80vh] shadow-lg bg-white w-full z-10 md:w-[500px] ${
+                            open ? "block" : "hidden md:block"
                         }`}
                     >
                         <div className="w-full p-4 text-right md:hidden">

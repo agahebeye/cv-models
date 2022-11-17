@@ -10,13 +10,13 @@ class TemplateController
     #[Get('/templates', name: 'templates.index')]
     public function index()
     {
-        return inertia()->render('Templates/Index');
+        return inertia()->render('templates/routes/index');
     }
 
     #[Get('/new', name: 'templates.new', middleware: ['auth'])]
     public function create()
     {
-        return inertia('Templates/New');
+        return inertia('templates/routes/new');
     }
 
     #[Post('/new', name: 'templates.store', middleware: ['auth'])]
@@ -28,7 +28,7 @@ class TemplateController
     #[Get('/templates/{id}', name: 'templates.show')]
     public function show($id)
     {
-        return inertia('Templates/Show', [
+        return inertia('templates/routes/show', [
             'template' => $id
         ]);
     }

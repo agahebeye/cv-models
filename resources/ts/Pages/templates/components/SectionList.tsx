@@ -23,13 +23,17 @@ export default function SelectionList({ sections, onUpdate }: Props) {
     }
 
     return (
-        <div id="sections" className="px-4">
+        <div id="sections" className="px-6 pb-6 overflow-y-auto h-[80vh] md:pt-4">
             {sections.map((section: Section) => (
-                <section key="s.name">
-                    <h3 className="text-xl"></h3>
-                    <form action="" className="mt-4">
+                <section key="section.name">
+                    <h3 className="text-xl">{section.name}</h3>
+
+                    <form action="" className="sm:grid sm:grid-cols-2 md:grid-cols-1 sm:gap-2">
                         {section.fields.map((field) => (
-                            <div className="flex flex-col" key={field.label}>
+                            <div
+                                className="flex flex-col mt-4"
+                                key={field.label}
+                            >
                                 <InputLabel
                                     forInput={field.label}
                                     value={field.label}
