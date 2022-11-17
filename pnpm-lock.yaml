@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@headlessui/react': ^1.4.2
+  '@heroicons/react': ^2.0.13
   '@inertiajs/inertia': ^0.11.0
   '@inertiajs/inertia-react': ^0.8.1
   '@inertiajs/progress': ^0.2.6
@@ -21,6 +22,7 @@ specifiers:
   vite: ^3.0.0
 
 dependencies:
+  '@heroicons/react': 2.0.13_react@18.2.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
 
@@ -340,6 +342,14 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: true
+
+  /@heroicons/react/2.0.13_react@18.2.0:
+    resolution: {integrity: sha512-iSN5XwmagrnirWlYEWNPdCDj9aRYVD/lnK3JlsC9/+fqGF80k8C7rl+1HCvBX0dBoagKqOFBs6fMhJJ1hOg1EQ==}
+    peerDependencies:
+      react: '>= 16'
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /@inertiajs/inertia-react/0.8.1_rklruaqualwo6h75enkiuwrtxm:
     resolution: {integrity: sha512-9Uu7t4EA9FrcREwWnOU/qW5i4hYFt+uFn5cqP6RGJo8lJS4u8t6Q9358oHuQUKbFEbaIjUu7aslCL3/Istctlg==}
