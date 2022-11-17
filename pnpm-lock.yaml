@@ -12,6 +12,7 @@ specifiers:
   '@vitejs/plugin-react': ^2.0.0
   autoprefixer: ^10.4.12
   axios: ^0.27
+  immer: ^9.0.16
   laravel-vite-plugin: ^0.6.0
   lodash: ^4.17.19
   postcss: ^8.4.18
@@ -19,12 +20,15 @@ specifiers:
   react-dom: ^18.2.0
   tailwindcss: ^3.2.1
   typescript: ^4.6.4
+  use-immer: ^0.8.0
   vite: ^3.0.0
 
 dependencies:
   '@heroicons/react': 2.0.13_react@18.2.0
+  immer: 9.0.16
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  use-immer: 0.8.0_immer@9.0.16+react@18.2.0
 
 devDependencies:
   '@headlessui/react': 1.7.4_biqbaboplfbrettd7655fr4n2y
@@ -1042,6 +1046,10 @@ packages:
       function-bind: 1.1.1
     dev: true
 
+  /immer/9.0.16:
+    resolution: {integrity: sha512-qenGE7CstVm1NrHQbMh8YaSzTZTFNP3zPqr3YU0S0UY441j4bJTg4A2Hh5KAhwgaiU6ZZ1Ar6y/2f4TblnMReQ==}
+    dev: false
+
   /is-binary-path/2.1.0:
     resolution: {integrity: sha512-ZMERYes6pDydyuGidse7OsHxtbI7WVeUEozgR/g7rd0xUimYNlvZRE/K2MgZTjWy725IfelLeVcEM97mmtRGXw==}
     engines: {node: '>=8'}
@@ -1460,6 +1468,16 @@ packages:
       escalade: 3.1.1
       picocolors: 1.0.0
     dev: true
+
+  /use-immer/0.8.0_immer@9.0.16+react@18.2.0:
+    resolution: {integrity: sha512-FPZm/wZoR++r85lS7HWM8yD6AZVVZ0jdBpshYnal+12h2VM9q4TZ9hTdSFNXw87QpqqGxV6K9TN8IGmOrvUDBA==}
+    peerDependencies:
+      immer: '>=2.0.0'
+      react: ^16.8.0 || ^17.0.1 || ^18.0.0
+    dependencies:
+      immer: 9.0.16
+      react: 18.2.0
+    dev: false
 
   /util-deprecate/1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
