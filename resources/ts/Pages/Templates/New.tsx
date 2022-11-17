@@ -5,6 +5,7 @@ import { Bars3BottomLeftIcon, XMarkIcon } from "@heroicons/react/24/solid";
 
 import AuthenticatedLayout from "~/Layouts/AuthenticatedLayout";
 import TextInput from "~/Components/TextInput";
+import InputLabel from "~/Components/InputLabel";
 
 type Section = {
     name: string;
@@ -67,9 +68,10 @@ export default function New(props: AuthenticatedLayoutProps) {
                                                 className="flex flex-col"
                                                 key={field.label}
                                             >
-                                                <label htmlFor="">
-                                                    {field.label}
-                                                </label>
+                                                <InputLabel
+                                                    forInput={field.label}
+                                                    value={field.label}
+                                                />
 
                                                 <TextInput
                                                     className="block w-full mt-1"
