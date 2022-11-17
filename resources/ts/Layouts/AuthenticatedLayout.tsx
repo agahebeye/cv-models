@@ -5,16 +5,8 @@ import NavLink from "~/Components/NavLink";
 import ResponsiveNavLink from "~/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/inertia-react";
 
-interface Props {
-    auth: {
-        user?: any;
-    };
-    header?: React.ReactNode;
-    children?: React.ReactNode;
-    errors?: any;
-}
 
-export default function Authenticated({ auth, header, children }: Props) {
+export default function Authenticated({ auth, header, children }: AuthenticatedLayoutProps) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
 
@@ -199,7 +191,7 @@ export default function Authenticated({ auth, header, children }: Props) {
 
             <main>
                 <div className="pt-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-                            {children}
+                    {children}
                 </div>
             </main>
         </div>
