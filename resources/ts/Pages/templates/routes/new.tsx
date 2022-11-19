@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import { useImmer } from "use-immer";
-import { Link, Head } from "@inertiajs/inertia-react";
+import { Head } from "@inertiajs/inertia-react";
 import { Bars3BottomLeftIcon, XMarkIcon } from "@heroicons/react/24/solid";
 
 import AuthenticatedLayout from "~/Layouts/AuthenticatedLayout";
 import SelectionList from "../components/sections/SectionList";
 
-import {initialSections} from '../data';
+import { initialSections } from "../data";
 
 export default function New(props: AuthenticatedLayoutProps) {
     const [open, setOpen] = useState(false);
-    const [sections, UpdateSections] = useImmer(initialSections);
+    const [sections, updateSections] = useImmer(initialSections);
+    const SectionContext = React.createContext({sections, updateSections});
 
     return (
         <AuthenticatedLayout auth={props.auth}>
             <Head title="New Template" />
 
-            <div>
+            <SectionContext.Provider value={{sections, updateSections}}>
                 <div className="md:space-x-4 md:flex">
                     <div
                         id="sidebar"
@@ -30,10 +31,7 @@ export default function New(props: AuthenticatedLayoutProps) {
                             </button>
                         </div>
 
-                        <SelectionList
-                            sections={sections}
-                            onUpdate={UpdateSections}
-                        />
+                        <SelectionList />
                     </div>
 
                     <div className="flex items-start w-full">
@@ -56,7 +54,7 @@ export default function New(props: AuthenticatedLayoutProps) {
                         ></div>
                     </div>
                 </div>
-            </div>
+            </SectionContext.Provider>
         </AuthenticatedLayout>
     );
 }

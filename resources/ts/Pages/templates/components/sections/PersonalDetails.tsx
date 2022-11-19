@@ -1,3 +1,10 @@
+import SectionItem from "./SectionItem";
+
 export default function PersonalDetails() {
-    return <div></div>
+    return (
+        <SectionItem name={''}>
+            <form>
+            </form>
+        </SectionItem>
+    );
 }
