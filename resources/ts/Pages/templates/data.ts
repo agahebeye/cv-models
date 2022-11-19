@@ -1,20 +1,13 @@
-export const initialSections = [
-    {
-        name: 'Personal Details',
-        children: {
-            photo: null,
-            name: '',
-            email: ''
-        }
-    }, {
-        name: 'Profile',
-        children: ''
+export const initialSections =
+{
+    personalDetails: {
+        photo: null,
+        name: '',
+        email: ''
     },
-    {
-        name: 'Employment',
-        children: [{
-            position: '',
-            description: ''
-        }]
-    }
-]
+    profile: '',
+    employment: [{
+        position: '',
+        description: ''
+    }]
+}
