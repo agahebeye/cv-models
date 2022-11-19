@@ -18,4 +18,16 @@ export const initialSections = [
             { label: "Website", value: "" },
         ],
     },
+
+    {
+        name: "Employment",
+        fields: [
+            { label: "Position", value: "" },
+            { label: "Employer", value: "" },
+            { label: "City", value: "" },
+            { label: "Start date", value: "" },
+            { label: "End Date", value: "" },
+            { label: "Description", value: "" }
+        ]
+    }
 ];

@@ -4,7 +4,7 @@ import { Link, Head } from "@inertiajs/inertia-react";
 import { Bars3BottomLeftIcon, XMarkIcon } from "@heroicons/react/24/solid";
 
 import AuthenticatedLayout from "~/Layouts/AuthenticatedLayout";
-import SelectionList from "../components/SectionList";
+import SelectionList from "../components/sections/SectionList";
 
 import {initialSections} from '../data';
 
