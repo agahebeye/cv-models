@@ -1,11 +1,15 @@
+import React, {useState} from 'react';
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
-import { isArrayLikeObject } from "lodash";
 
-import TextInput from "~/Components/TextInput";
-import InputLabel from "~/Components/InputLabel";
 
-export default function SectionItem({ name, children }: any) {
+type SectionItemType = {
+    name: React.ReactNode,
+    children?: React.ReactNode
+}
+
+export default function SectionItem({ name, children }: SectionItemType) {
+
     return (
         <Disclosure as="div" className="mt-4">
             {({ open }) => (

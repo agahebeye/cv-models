@@ -1,21 +1,36 @@
-import React from "react";
-import { Updater, useImmer } from "use-immer";
+import React, { useContext, useState } from "react";
+import { DraftFunction, Updater, useImmer } from "use-immer";
 
 import { initialSections } from "../data";
 
-type ISectionList<T> = {
-    [key in keyof T]: T[key];
+type SectionListType = typeof initialSections;
+
+type SectionContextType = {
+    sections: SectionListType;
+    setSections: Updater<SectionListType>;
 };
 
-const sections : ISectionList<typeof initialSections> = initialSections;
+export const SectionContext = React.createContext({
+    sections: initialSections,
+    setSections: (
+        sections: SectionListType | DraftFunction<SectionListType>
+    ) => {},
+});
 
-export const SectionContext = React.createContext<{} | null>(null);
+export function useSectionContext() {
+    const ctxValue = useContext(SectionContext);
+    // if (ctxValue.setSections === undefined) {
+    //     throw new Error("Expected setSections to be set");
+    // }
+
+    return ctxValue;
+}
 
 export default function SectionProvider(props: { children?: React.ReactNode }) {
-    const [sections, updateSections] = useImmer(initialSections);
+    const [sections, setSections] = useImmer(initialSections);
 
     return (
-        <SectionContext.Provider value={{ sections, updateSections }}>
+        <SectionContext.Provider value={{ sections, setSections }}>
             {props.children}
         </SectionContext.Provider>
     );

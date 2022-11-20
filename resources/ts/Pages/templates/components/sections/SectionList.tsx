@@ -1,12 +1,6 @@
 import SectionItem from "./SectionItem";
 import PersonalDetails from "./PersonalDetails";
 
-import type { Section } from "../../types";
-
-type SectionListProps = {
-    sections: any;
-};
-
 export default function SelectionList() {
     return (
         <div

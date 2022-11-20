@@ -25,9 +25,9 @@ export default function Login({ status, canResetPassword }: Props) {
         };
     }, []);
 
-    const onHandleChange = (event: React.FormEvent<HTMLInputElement>) => {
+    const onHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setData(
-            event.currentTarget.name,
+            event.target.name,
             event.currentTarget.type === "checkbox"
                 ? event.currentTarget.checked
                 : event.currentTarget.value

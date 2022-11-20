@@ -1,7 +1,7 @@
 export const initialSections =
 {
     personalDetails: {
-        photo: null,
+        photo: '',
         name: '',
         email: ''
     },
