@@ -1,15 +1,13 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
 
-
 type SectionItemType = {
-    name: React.ReactNode,
-    children?: React.ReactNode
-}
+    name: React.ReactNode;
+    children?: React.ReactNode;
+};
 
 export default function SectionItem({ name, children }: SectionItemType) {
-
     return (
         <Disclosure as="div" className="mt-4">
             {({ open }) => (
@@ -23,12 +21,14 @@ export default function SectionItem({ name, children }: SectionItemType) {
                         />
                     </Disclosure.Button>
 
-                    <Disclosure.Panel
-                        static
-                        className="px-4 pt-4 pb-2 text-sm text-gray-500"
-                    >
-                        {children}
-                    </Disclosure.Panel>
+                    {open && (
+                        <Disclosure.Panel
+                            static
+                            className="px-4 pt-4 pb-2 text-sm text-gray-500"
+                        >
+                            {children}
+                        </Disclosure.Panel>
+                    )}
                 </>
             )}
         </Disclosure>

@@ -11,19 +11,31 @@ export default function PersonalDetails() {
 
     function handleChange(e: ChangeEvent<HTMLInputElement>) {
         setSections((draft) => {
-            draft.personalDetails[e.target.name] = e.target.value;
+            const key = e.target.name as keyof typeof draft.personalDetails;
+            draft.personalDetails[key] = e.target.value;
         });
     }
 
     return (
         <SectionItem name={"Personal Details"}>
-            <form>
+            <form className="flex flex-wrap gap-4">
                 <div>
                     <InputLabel forInput="name" value="Given name" />
                     <TextInput
                         name="name"
                         handleChange={handleChange}
                         value={sections.personalDetails.name}
+                    />
+                </div>
+
+                <div>
+                    <InputLabel forInput="email" value="email adress" />
+
+                    <TextInput
+                        name="email"
+                        type="email"
+                        handleChange={handleChange}
+                        value={sections.personalDetails.email}
                     />
                 </div>
             </form>

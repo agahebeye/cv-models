@@ -1,8 +1,8 @@
 export const initialSections =
 {
     personalDetails: {
-        photo: '',
-        name: '',
+        firstname: '',
+        lastname: '',
         email: ''
     },
     profile: '',

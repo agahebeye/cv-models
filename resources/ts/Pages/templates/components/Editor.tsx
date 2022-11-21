@@ -6,7 +6,7 @@ type EditorType = {
 };
 
 export default function Editor({ open }: EditorType) {
-    const {sections} = useContext(SectionContext);
+    const { sections } = useContext(SectionContext);
 
     return (
         <div
@@ -15,7 +15,22 @@ export default function Editor({ open }: EditorType) {
                             p-6
                              ${open ? "hidden md:block" : ""}`}
         >
-            this is an editor {sections.personalDetails.name}
+            <section id="personal--details">
+                <h3 className="text-xl font-semibold text-gray-800">
+                    Personal Details
+                </h3>
+
+                {Object.keys(sections.personalDetails).map((key) => (
+                    <div key={key}>
+                        {key}:{" "}
+                        {
+                            sections.personalDetails[
+                                key as keyof typeof sections.personalDetails
+                            ]
+                        }
+                    </div>
+                ))}
+            </section>
         </div>
     );
 }
