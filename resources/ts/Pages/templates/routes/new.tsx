@@ -5,7 +5,7 @@ import { Bars3BottomLeftIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import AuthenticatedLayout from "~/Layouts/AuthenticatedLayout";
 import SelectionList from "../components/sections/SectionList";
 import SectionProvider from "../components/SectionProvider";
-import Editor from "../components/Editor";
+import Page from "../components/resumes/Page";
 
 export default function New(props: AuthenticatedLayoutProps) {
     const [open, setOpen] = useState(false);
@@ -42,7 +42,7 @@ export default function New(props: AuthenticatedLayoutProps) {
                             </button>
                         )}
 
-                        <Editor open={open} />
+                        <Page open={open} />
                     </div>
                 </div>
             </SectionProvider>

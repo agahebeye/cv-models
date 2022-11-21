@@ -1,9 +1,9 @@
 export const initialSections =
 {
     personalDetails: {
-        firstname: '',
-        lastname: '',
-        email: ''
+        firstName: '',
+        lastName: '',
+        email: '' 
     },
     profile: '',
     employment: [{

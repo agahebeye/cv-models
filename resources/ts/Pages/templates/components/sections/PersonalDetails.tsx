@@ -22,9 +22,9 @@ export default function PersonalDetails() {
                 <div>
                     <InputLabel forInput="name" value="Given name" />
                     <TextInput
-                        name="name"
+                        name="firstName"
                         handleChange={handleChange}
-                        value={sections.personalDetails.name}
+                        value={sections.personalDetails.firstName}
                     />
                 </div>
 
