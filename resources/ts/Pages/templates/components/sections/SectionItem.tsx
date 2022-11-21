@@ -24,7 +24,7 @@ export default function SectionItem({ name, children }: SectionItemType) {
                     {open && (
                         <Disclosure.Panel
                             static
-                            className="px-4 pt-4 pb-2 text-sm text-gray-500"
+                            className="pt-4 pb-2 text-sm text-gray-500"
                         >
                             {children}
                         </Disclosure.Panel>
