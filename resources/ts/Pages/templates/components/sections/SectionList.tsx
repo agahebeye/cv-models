@@ -1,3 +1,4 @@
+import Education from "./Education";
 import PersonalDetails from "./PersonalDetails";
 import Profile from "./Profile";
 
@@ -10,6 +11,7 @@ export default function SectionList() {
             <section key="section.name">
                 <PersonalDetails />
                 <Profile />
+                <Education />
             </section>
         </div>
     );
