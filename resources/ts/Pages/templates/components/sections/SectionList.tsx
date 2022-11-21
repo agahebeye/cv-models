@@ -1,7 +1,7 @@
-import SectionItem from "./SectionItem";
 import PersonalDetails from "./PersonalDetails";
+import Profile from "./Profile";
 
-export default function SelectionList() {
+export default function SectionList() {
     return (
         <div
             id="sections"
@@ -9,6 +9,7 @@ export default function SelectionList() {
         >
             <section key="section.name">
                 <PersonalDetails />
+                <Profile />
             </section>
         </div>
     );

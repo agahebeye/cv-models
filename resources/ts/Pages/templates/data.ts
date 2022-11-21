@@ -5,7 +5,9 @@ export const initialSections =
         lastName: '',
         email: '' 
     },
-    profile: '',
+    profile: {
+        description: ''
+    },
     employment: [{
         position: '',
         description: ''

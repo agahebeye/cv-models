@@ -6,9 +6,7 @@ type PageType = {
     open: boolean;
 };
 
-type SectionKey<T> = keyof T;
-
-export default function Editor({ open }: PageType) {
+export default function Page({ open }: PageType) {
     const { sections } = useContext(SectionContext);
     const title = (str: string) => capitalize(lowerCase(str));
 
@@ -43,6 +41,11 @@ export default function Editor({ open }: PageType) {
                         return;
                     })}
                 </div>
+            </section>
+
+            <section>
+                <h3 className="text-xl font-semibold">Profile</h3>
+                <div>{sections.profile.description}</div>
             </section>
         </div>
     );

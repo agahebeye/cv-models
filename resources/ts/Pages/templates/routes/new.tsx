@@ -3,7 +3,7 @@ import { Head } from "@inertiajs/inertia-react";
 import { Bars3BottomLeftIcon, XMarkIcon } from "@heroicons/react/24/solid";
 
 import AuthenticatedLayout from "~/Layouts/AuthenticatedLayout";
-import SelectionList from "../components/sections/SectionList";
+import SectionList from "../components/sections/SectionList";
 import SectionProvider from "../components/SectionProvider";
 import Page from "../components/resumes/Page";
 
@@ -27,7 +27,8 @@ export default function New(props: AuthenticatedLayoutProps) {
                                 <XMarkIcon className={`w-5 h-5`} />
                             </button>
                         </div>
-                        <SelectionList />
+
+                        <SectionList />
                     </div>
 
                     <div className="flex items-start w-full">
