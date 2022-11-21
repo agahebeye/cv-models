@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useContext } from "react";
+import React, { useContext } from "react";
 
 import TextInput from "~/Components/TextInput";
 import InputLabel from "~/Components/InputLabel";
@@ -9,7 +9,9 @@ import { SectionContext } from "../SectionProvider";
 export default function PersonalDetails() {
     const { sections, setSections } = useContext(SectionContext);
 
-    function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    function handleChange(
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) {
         setSections((draft) => {
             const key = e.target.name as keyof typeof draft.personalDetails;
             draft.personalDetails[key] = e.target.value;

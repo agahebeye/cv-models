@@ -3,13 +3,14 @@ export const initialSections =
     personalDetails: {
         firstName: '',
         lastName: '',
-        email: '' 
+        email: ''
     },
     profile: {
         description: ''
     },
-    employment: [{
-        position: '',
+    educations: [{
+        title: '',
+        school: '',
         description: ''
     }]
 }

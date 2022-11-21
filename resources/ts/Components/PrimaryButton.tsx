@@ -1,6 +1,10 @@
 import React from 'react';
 
-export default function PrimaryButton({ type = 'submit', className = '', processing, children, onClick }) {
+type PrimaryButtonType = {
+    processing?: boolean
+} & React.ComponentProps<'button'>
+
+export default function PrimaryButton({ type = 'submit', className = '', processing, children, onClick } : PrimaryButtonType) {
     return (
         <button
             type={type}
