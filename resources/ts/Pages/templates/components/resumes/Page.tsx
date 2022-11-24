@@ -1,15 +1,8 @@
-import { capitalize, isEmpty, isNull, lowerCase } from "lodash";
-import { useContext } from "react";
-import { SectionContext } from "../SectionProvider";
-import PersonalDetails from "./PersonalDetails";
-
 type PageType = {
     open: boolean;
 };
 
 export default function Page({ open }: PageType) {
-    const { sections } = useContext(SectionContext);
-
     return (
         <div
             id="resumePage"

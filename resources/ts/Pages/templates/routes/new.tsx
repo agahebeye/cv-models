@@ -1,52 +1,44 @@
 import React, { useContext, useState } from "react";
 import { Head } from "@inertiajs/inertia-react";
-import { Bars3BottomLeftIcon, XMarkIcon } from "@heroicons/react/24/solid";
 
 import AuthenticatedLayout from "~/Layouts/AuthenticatedLayout";
-import SectionList from "../components/sections/SectionList";
-import SectionProvider from "../components/SectionProvider";
-import Page from "../components/resumes/Page";
+import { DndContext } from "@dnd-kit/core";
+import { sections } from "../data";
+import Draggable from "../components/Draggable";
+import { Bars3BottomLeftIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 export default function New(props: AuthenticatedLayoutProps) {
-    const [open, setOpen] = useState(false);
-
     return (
         <AuthenticatedLayout auth={props.auth}>
             <Head title="New Template" />
 
-            <SectionProvider>
-                <div className="md:space-x-4 md:flex">
-                    <div
-                        id="sidebar"
-                        className={`min-h-[80vh] shadow-lg bg-white w-full z-10 md:w-[500px] ${
-                            open ? "block" : "hidden md:block"
-                        }`}
-                    >
-                        <div className="w-full p-4 text-right md:hidden">
-                            <button onClick={() => setOpen(false)}>
-                                <XMarkIcon className={`w-5 h-5`} />
-                            </button>
+            <DndContext>
+                <div className="flex h-full">
+                    <div className="flex items-start space-x-2">
+                        <div className="h-[calc(100vh-105px)] w-2/5 p-4 bg-white">
+                            <SectionList />
                         </div>
-
-                        <SectionList />
-                    </div>
-
-                    <div className="flex items-start w-full">
-                        {!open && (
-                            <button
-                                className="mr-2"
-                                onClick={() => setOpen(true)}
-                            >
-                                <Bars3BottomLeftIcon
-                                    className={`w-5 h-5 md:hidden`}
-                                />
-                            </button>
-                        )}
-
-                        <Page open={open} />
+                        <button className="">
+                            <Bars3BottomLeftIcon className="w-7 h-7" />
+                        </button>
                     </div>
                 </div>
-            </SectionProvider>
+            </DndContext>
         </AuthenticatedLayout>
+    );
+}
+
+function SectionList() {
+    return (
+        <div className="flex flex-wrap gap-2">
+            {sections.map((section, key) => {
+                const id = Math.random().toString(36).substring(2, 9);
+                return (
+                    <Draggable id={id} key={key}>
+                        {section?.name || section.section}
+                    </Draggable>
+                );
+            })}
+        </div>
     );
 }
