@@ -1,14 +1,13 @@
 import React, { ChangeEvent, forwardRef, useEffect, useRef } from "react";
 
-interface ITextInputProps extends React.ComponentPropsWithRef<"input"> {
-    handleChange?: (
-        event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ) => void;
+type TextInputProps = React.ComponentPropsWithRef<"input">
+& {
     isFocused?: boolean;
+    handleChange?: (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 export default forwardRef(function TextInput(
-    props: ITextInputProps,
+    props: TextInputProps,
     ref: React.Ref<HTMLInputElement | HTMLTextAreaElement | null>
 ) {
     const input = ref ? ref : useRef(null);
@@ -23,7 +22,7 @@ export default forwardRef(function TextInput(
         autoComplete: props.autoComplete,
         required: props.required,
         onChange: (
-            e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+            e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
         ) => props.handleChange?.(e),
     };
 
