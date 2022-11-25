@@ -1,0 +1,7 @@
+.sidebar {
+   @apply absolute top-0 left-0 md:left-6 flex items-start h-[calc(100vh-60px)] space-x-2
+}
+
+.resume {
+    @apply w-full md:max-w-2xl md:mx-auto h-[calc(100vh-110px)] mx-2 bg-white;
+}
