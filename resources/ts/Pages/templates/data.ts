@@ -42,6 +42,7 @@ export function getSectionType(type: string, title?: string) {
         }
 
         default: return {
+            title,
             value: ''
         }
     }

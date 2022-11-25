@@ -7,6 +7,7 @@ import classes from '../styles/new.module.css';
 
 function Sidebar() {
     const [open, setOpen] = useState(false);
+    
     return (
         <div className={classes.sidebar}>
             <div
