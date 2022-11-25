@@ -11,7 +11,7 @@ export default function Authenticated({ auth, header, children }: AuthenticatedL
         useState(false);
 
     return (
-        <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div className="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900">
             <nav className="bg-white border-b border-gray-100 dark:bg-gray-800 dark:border-gray-700">
                 <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
@@ -190,7 +190,7 @@ export default function Authenticated({ auth, header, children }: AuthenticatedL
             )}
 
             <main>
-                <div className="relative px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <div className="relative flex-grow px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     {children}
                 </div>
             </main>

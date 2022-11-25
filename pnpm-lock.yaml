@@ -15,6 +15,7 @@ specifiers:
   '@vitejs/plugin-react': ^2.0.0
   autoprefixer: ^10.4.12
   axios: ^0.27
+  classnames: ^2.3.2
   immer: ^9.0.16
   laravel-vite-plugin: ^0.6.0
   lodash: ^4.17.19
@@ -30,6 +31,7 @@ dependencies:
   '@dnd-kit/core': 6.0.5_biqbaboplfbrettd7655fr4n2y
   '@dnd-kit/utilities': 3.2.0_react@18.2.0
   '@heroicons/react': 2.0.13_react@18.2.0
+  classnames: 2.3.2
   immer: 9.0.16
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -671,6 +673,10 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /classnames/2.3.2:
+    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
+    dev: false
 
   /client-only/0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
