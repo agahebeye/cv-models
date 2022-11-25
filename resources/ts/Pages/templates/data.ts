@@ -1,35 +1,48 @@
-export const initialSections =
-{
-    personalDetails: {
-        firstName: '',
-        lastName: '',
-        email: ''
-    },
-    profile: {
-        description: ''
-    },
-    educations: [{
-        title: '',
-        school: '',
-        description: ''
-    }]
-}
-
-export const sections = [{
-    name: 'firstName',
-    section: 'personalDetails'
+export const initialSections = [{
+    title: 'firstName',
+    category: 'personalDetails',
 }, {
-    name: 'lastName',
-    section: 'personalDetails'
+    title: 'lastName',
+    category: 'personalDetails'
 }, {
-    name: 'email',
-    section: 'personalDetails'
+    title: 'email',
+    category: 'personalDetails'
 }, {
-    section: 'education'
+    type: 'entries',
+    category: 'eduction'
 }, {
-    section: 'employment',
+    type: 'entries',
+    category: 'employment',
 }, {
-    section: 'skills'
+    type: 'level',
+    category: 'skills'
 }, {
-    section: 'languages'
+    type: 'level',
+    category: 'languages'
 }]
+
+export function getSectionType(type: string, title?: string) {
+    switch (type) {
+        case 'description': return {
+            description: ''
+        }
+
+        case 'entries': return {
+            value: '',
+            source: '',
+            city: '',
+            started: '',
+            ended: '',
+            description: ''
+        }
+
+        case 'level': return {
+            value: '',
+            level: ''
+        }
+
+        default: return {
+            value: ''
+        }
+    }
+}

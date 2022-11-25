@@ -2,7 +2,7 @@ import {useState} from 'react';
 import { Bars3BottomLeftIcon } from "@heroicons/react/24/outline";
 
 import Draggable from './Draggable';
-import { sections } from '../data';
+import { initialSections as sections } from '../data';
 import classes from '../styles/new.module.css';
 
 function Sidebar() {
@@ -34,7 +34,7 @@ function SectionList() {
                 const id = Math.random().toString(36).substring(2, 9);
                 return (
                     <Draggable id={id} key={key} data={section}>
-                        {section?.name || section.section}
+                        {section?.title || section.category}
                     </Draggable>
                 );
             })}

@@ -10,16 +10,12 @@ type DropabbleProps = {
 };
 
 function Droppable({ id, className, children }: DropabbleProps) {
+
     const { isOver, setNodeRef } = useDroppable({
         id,
     });
 
-    useDndMonitor({
-        onDragEnd({ over, active }) {
-            console.log(active.data.current);
-        },
-    });
-
+  
     className = classnames(
         className,
         `${isOver ? "bg-gray-100 shadow-lg border rounded-lg" : ""}`

@@ -3,11 +3,9 @@ import { DndContext } from "@dnd-kit/core";
 
 import AuthenticatedLayout from "~/Layouts/AuthenticatedLayout";
 
-import Droppable from "../components/Droppable";
-
-import classes from "../styles/new.module.css";
 import Sidebar from "../components/Sidebar";
 import { SectionsProvider } from "../SectionsProvier";
+import Resume from "../components/Resume";
 
 export default function New(props: AuthenticatedLayoutProps) {
     return (
@@ -18,7 +16,7 @@ export default function New(props: AuthenticatedLayoutProps) {
                 <DndContext>
                     <div className="flex h-full">
                         <Sidebar />
-                        <Droppable id="resume" className={classes.resume} />
+                        <Resume />
                     </div>
                 </DndContext>
             </SectionsProvider>
