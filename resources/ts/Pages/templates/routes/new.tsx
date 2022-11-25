@@ -8,20 +8,28 @@ import Draggable from "../components/Draggable";
 import { Bars3BottomLeftIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 export default function New(props: AuthenticatedLayoutProps) {
+    const [open, setOpen] = useState(false);
     return (
         <AuthenticatedLayout auth={props.auth}>
             <Head title="New Template" />
 
             <DndContext>
                 <div className="flex h-full">
-                    <div className="flex items-start space-x-2">
-                        <div className="h-[calc(100vh-105px)] w-2/5 p-4 bg-white">
-                            <SectionList />
-                        </div>
-                        <button className="">
-                            <Bars3BottomLeftIcon className="w-7 h-7" />
+                    <div className="absolute top-0 left-0 flex items-start h-[calc(100vh-60px)] space-x-2">
+                        {open && (
+                            <div className={`h-full w-2/5 p-4 bg-white ${open && 'shadow-lg'}`}>
+                                <SectionList />
+                            </div>
+                        )}
+                        <button
+                            className="p-2 m-2 bg-gray-800 rounded-full"
+                            onClick={() => setOpen((open) => !open)}
+                        >
+                            <Bars3BottomLeftIcon className="w-5 h-5 text-white" />
                         </button>
                     </div>
+
+                    <div className="w-full h-[calc(100vh-110px)] mx-2 bg-white"></div>
                 </div>
             </DndContext>
         </AuthenticatedLayout>
