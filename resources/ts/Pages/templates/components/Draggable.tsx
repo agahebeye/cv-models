@@ -6,11 +6,12 @@ import type { UniqueIdentifier } from "@dnd-kit/core";
 
 type DraggableType = {
     id: UniqueIdentifier;
-    children?: React.ReactNode;
+    disabled?: boolean;
     data?: any;
+    children?: React.ReactNode;
 };
 
-function Draggable({ id, data, children }: DraggableType) {
+function Draggable({ id, data, disabled, children }: DraggableType) {
     const draggable = useDraggable({
         id,
         data,
@@ -19,8 +20,7 @@ function Draggable({ id, data, children }: DraggableType) {
     const mergedAttributes = {
         ...draggable.attributes,
         ...draggable.listeners,
-        className:
-            "inline-flex items-center px-3 py-1 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-sm font-medium text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none transition ease-in-out duration-150",
+        className: "button px-3 py-1 rounded-sm focus:ring-0",
         style: { transform: CSS.Translate.toString(draggable.transform) },
     };
 

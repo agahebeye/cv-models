@@ -24,5 +24,26 @@ export const SectionsContext = createContext<SectionContextType>({
 });
 
 export function useSections() {
-    return useContext(SectionsContext);
+    const ctx = useContext(SectionsContext);
+
+    return {
+        ...ctx,
+        getSection,
+    };
+
+    function getSection(category: string, title?: string) {
+        const hasTitle = title && category === "personalDetails";
+
+        if (hasTitle) {
+            return ctx.sections.filter((section) => {
+               // console.log(section["title"]);
+                return section["title"] === title;
+            });
+        } else {
+            return ctx.sections.filter((section) => {
+              //  console.log(section["category"]);
+                return section["category"] === category;
+            });
+        }
+    }
 }

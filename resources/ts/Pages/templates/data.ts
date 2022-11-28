@@ -9,7 +9,7 @@ export const initialSections = [{
     category: 'personalDetails'
 }, {
     type: 'entries',
-    category: 'eduction'
+    category: 'education'
 }, {
     type: 'entries',
     category: 'employment',

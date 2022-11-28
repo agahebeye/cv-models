@@ -1,13 +1,14 @@
-import {useState} from 'react';
+import { useState } from "react";
 import { Bars3BottomLeftIcon } from "@heroicons/react/24/outline";
 
-import Draggable from './Draggable';
-import { initialSections as sections } from '../data';
-import classes from '../styles/new.module.css';
+import Draggable from "./Draggable";
+import { getSectionType, initialSections as sections } from "../data";
+import classes from "../styles/new.module.css";
+import { useSections } from "../SectionsProvier";
 
 function Sidebar() {
     const [open, setOpen] = useState(false);
-    
+
     return (
         <div className={classes.sidebar}>
             <div
@@ -29,13 +30,28 @@ function Sidebar() {
 }
 
 function SectionList() {
+    const { getSection } = useSections();
+
     return (
         <div className="flex flex-wrap gap-2">
             {sections.map((section, key) => {
                 const id = Math.random().toString(36).substring(2, 9);
+
+                const added = getSection(
+                    section.category,
+                    section.title
+                ).length;
+
+                const props = {
+                    id,
+                    key,
+                    data: section,
+                };
+
                 return (
-                    <Draggable id={id} key={key} data={section}>
-                        {section?.title || section.category}
+                    <Draggable {...props}>
+                        {section?.title || section.category}{" "}
+                        {section.title ? "" : added > 0 ? added : ""}
                     </Draggable>
                 );
             })}

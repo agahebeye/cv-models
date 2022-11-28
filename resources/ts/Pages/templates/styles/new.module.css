@@ -3,5 +3,7 @@
 }
 
 .resume {
-    @apply w-full md:max-w-2xl md:mx-auto h-[calc(100vh-110px)] mx-2 bg-white;
+    @apply w-full md:max-w-2xl md:mx-auto h-[calc(100vh-110px)] mx-2 bg-white
+    p-6 text-sm
+    ;
 }
