@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Bars3BottomLeftIcon } from "@heroicons/react/24/outline";
 
-import SectionList from "./SectionList";
+import SectionList from "../components/SectionList";
 import classes from "../styles/new.module.css";
 
 function Sidebar() {

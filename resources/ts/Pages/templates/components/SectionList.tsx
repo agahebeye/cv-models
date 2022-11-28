@@ -1,6 +1,6 @@
-import { useSections } from '../SectionsProvier';
-import {initialSections as sections} from '../data'
-import Draggable from './Draggable';
+import { useSections } from "../SectionsProvier";
+import { initialSections as sections } from "../data";
+import Draggable from "./Draggable";
 
 function SectionList() {
     const { getSection } = useSections();
@@ -19,17 +19,27 @@ function SectionList() {
                     id,
                     key,
                     data: section,
-                    disabled: section.title && added ? true : false
+                    disabled:
+                        (section.title || section.type === "description") &&
+                        added
+                            ? true
+                            : false,
                 };
 
                 const AddedBadge = (
-                    <span className="ml-2 text-[9px] px-1 font-bold text-gray-800 bg-white rounded-full">{added}</span>
-                )
+                    <span className="ml-2 text-[9px] px-1 font-bold text-gray-800 bg-white rounded-full">
+                        {added}
+                    </span>
+                );
 
                 return (
                     <Draggable {...props}>
                         <span>{section?.title || section.category}</span>
-                        {section.title ? "" : added > 0 ? AddedBadge : ""}
+                        {section.title || section.type === "description"
+                            ? ""
+                            : added > 0
+                            ? AddedBadge
+                            : ""}
                     </Draggable>
                 );
             })}

@@ -3,9 +3,9 @@ import { DndContext } from "@dnd-kit/core";
 
 import AuthenticatedLayout from "~/Layouts/AuthenticatedLayout";
 
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../partials/Sidebar";
 import { SectionsProvider } from "../SectionsProvier";
-import Resume from "../components/Resume";
+import Resume from "../partials/Resume";
 
 export default function New(props: AuthenticatedLayoutProps) {
     return (

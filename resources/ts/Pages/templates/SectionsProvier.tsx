@@ -36,12 +36,10 @@ export function useSections() {
 
         if (hasTitle) {
             return ctx.sections.filter((section) => {
-               // console.log(section["title"]);
                 return section["title"] === title;
             });
         } else {
             return ctx.sections.filter((section) => {
-              //  console.log(section["category"]);
                 return section["category"] === category;
             });
         }
