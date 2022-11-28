@@ -1,21 +1,19 @@
 import { useState } from "react";
 import { Bars3BottomLeftIcon } from "@heroicons/react/24/outline";
 
-import Draggable from "./Draggable";
-import { getSectionType, initialSections as sections } from "../data";
+import SectionList from "./SectionList";
 import classes from "../styles/new.module.css";
-import { useSections } from "../SectionsProvier";
 
 function Sidebar() {
     const [open, setOpen] = useState(false);
 
+    const togglerClass = `h-full w-2/5 p-4 bg-white ${
+        open ? "shadow-lg" : "hidden"
+    }`;
+
     return (
         <div className={classes.sidebar}>
-            <div
-                className={`h-full w-2/5 p-4 bg-white ${
-                    open ? "shadow-lg" : "hidden"
-                }`}
-            >
+            <div className={togglerClass}>
                 <SectionList />
             </div>
 
@@ -25,36 +23,6 @@ function Sidebar() {
             >
                 <Bars3BottomLeftIcon className="w-5 h-5 text-white" />
             </button>
-        </div>
-    );
-}
-
-function SectionList() {
-    const { getSection } = useSections();
-
-    return (
-        <div className="flex flex-wrap gap-2">
-            {sections.map((section, key) => {
-                const id = Math.random().toString(36).substring(2, 9);
-
-                const added = getSection(
-                    section.category,
-                    section.title
-                ).length;
-
-                const props = {
-                    id,
-                    key,
-                    data: section,
-                };
-
-                return (
-                    <Draggable {...props}>
-                        {section?.title || section.category}{" "}
-                        {section.title ? "" : added > 0 ? added : ""}
-                    </Draggable>
-                );
-            })}
         </div>
     );
 }

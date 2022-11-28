@@ -17,9 +17,12 @@ function Draggable({ id, data, disabled, children }: DraggableType) {
         data,
     });
 
+    const disabledAttribute = disabled ? { disabled } : undefined;
+
     const mergedAttributes = {
         ...draggable.attributes,
         ...draggable.listeners,
+        ...disabledAttribute,
         className: "button px-3 py-1 rounded-sm focus:ring-0",
         style: { transform: CSS.Translate.toString(draggable.transform) },
     };
